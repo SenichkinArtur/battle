@@ -1,11 +1,13 @@
 import { BaseUnit } from "./BaseUnit";
 
-export default class Unit extends BaseUnit {
+export class Unit extends BaseUnit {
 
     constructor(health, recharge) {
         super();
-        this.setHealth(health);
-        this.setRecharge(recharge);
+        // this.setHealth(health);
+        // this.setRecharge(recharge);
+        this.health = health;
+        this.recharge = recharge;
     }
 
     makeDamage() { 
@@ -21,15 +23,15 @@ export default class Unit extends BaseUnit {
     isAlive() {
         // boolean
     }
-    setRecharge(value) {
-        if(value < 100) {
-            this.recharge = 100;
-        } else if(value > 2000) {
-            this.recharge = 2000;
-        } else {
-            this.recharge = value;
-        }
-    }
+    // setRecharge(value) {
+    //     if(value < 100) {
+    //         this.recharge = 102;
+    //     } else if(value > 2000) {
+    //         this.recharge = 2000;
+    //     } else {
+    //         this.recharge = value;
+    //     }
+    // }
     isRecharged() {
         // boolean
     }
@@ -40,10 +42,10 @@ export default class Unit extends BaseUnit {
 
     }
     getHealth() {
-        return this._health;
+        return this.health;
     }
     setHealth(value) {
-        this._health = value;
+        this.health = value;
     }
     getPower() {
         
