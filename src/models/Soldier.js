@@ -7,7 +7,8 @@ export class Soldier extends Unit {
     constructor(health, recharge) {
         super();
         this.health = health;
-        this.setRecharge(recharge);
+        // this.setRecharge(recharge);
+        this.recharge = recharge;
     }
     set experience(value) {
         experience = value;
@@ -16,11 +17,12 @@ export class Soldier extends Unit {
         return experience;
     }
     isAlive() {
-        if(this.health > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        // if(this.health > 0) {
+        //     return true;
+        // } else {
+        //     return false;
+        // }
+        return this.health > 0;
     }
     attackSuccess() {
         return getAttackSuccess(this.health, this.experience);
@@ -29,7 +31,12 @@ export class Soldier extends Unit {
         return getDamage(this.experience);
     }
     isRecharge() {
-
+        let dateNow = Date.now()
+        console.log("Soldier is recharge: ", dateNow);
+        return true;
+    }
+    startRecharge() {
+        // console.log("soldier startRecharge", this.recharge);
     }
     setHealth() {
 
@@ -47,6 +54,7 @@ export class Soldier extends Unit {
     damageReceive(value) {
         this.health = this.health - value;
         this.health = Math.round(this.health * 100) / 100;
+        // console.log("this.health: ", this.health);
     }
 
 }

@@ -5,17 +5,25 @@ export class Vehicle extends Unit {
     constructor(operators, recharge, health) {
         super();
         this.operators = operators; // Soldier [0...3];
-        this.setRecharge(recharge);
+        // this.setRecharge(recharge);
+        this.recharge = recharge;
         this.health = health;
         
     }
 
     isAlive() {
-        if(this.health > 0 && this.operators.length > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        // console.log("this.health: ", this.health)
+        // if(this.health > 0 && this.operators.length > 0) {
+        //     let newOperators = this.operators.filter((item) => item.isAlive())
+        //     this.operators = newOperators;
+        //     return newOperators;
+
+        // } else {
+        //     return false;
+        // }
+
+        return this.health > 0;
+        
     }
 
     attackSuccess() {
@@ -41,8 +49,12 @@ export class Vehicle extends Unit {
 
     isRecharge() {
         let dateNow = Date.now()
-        console.log(dateNow);
+        console.log("vehicle isRecharge: ", dateNow);
         return true;
+    }
+
+    startRecharge() {
+        // console.log("vehicle startRecharge:", this.recharge);
     }
 
 
@@ -86,6 +98,7 @@ export class Vehicle extends Unit {
                 item.damageReceive(leftDamage);
             } 
         })
+        // console.log("this.health: ", this.health);
     }
 
 }

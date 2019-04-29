@@ -9,21 +9,31 @@ export class Squad  extends BaseUnit {
     }
 
     isAlive() {
-        if(this.units.length > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.units.some(e => e.isAlive());
+        // let newUnits = this.units.filter(item => item.isAlive());
+        // this.units = newUnits;
+        // return newUnits;
+        // if(this.units.length > 0) {
+        //     return true;
+        // } else {
+        //     return false;
+        // }
     }
+    checkUnits() {
+        this.units = this.units.filter(e => {
+          return e.isAlive();
+        });
+      }
 
     attackSuccess() {
         let sum = 1;
+        let geometricAverage;
         this.units.map((item) => {
             sum = sum * item.attackSuccess();
-            let geometricAverage = Math.pow(sum, 1 / this.units.length);
+            geometricAverage = Math.pow(sum, 1 / this.units.length);
             geometricAverage = Math.round(geometricAverage * 100) / 100;
-            return geometricAverage;
         });
+        return geometricAverage;
     }
 
     makeDamage() {
@@ -37,7 +47,7 @@ export class Squad  extends BaseUnit {
         });
         totalDamage = Math.round(totalDamage * 100) / 100;
         this.increaseExperienceSquad();
-        console.log(this.isRecharge());
+        // this.isRecharge();
         return totalDamage;
     }
 
@@ -46,8 +56,18 @@ export class Squad  extends BaseUnit {
             if(this.type == "soldiers") {
                 item.isRecharge();
             } else if(this.type == "vehicles") {
-                // console.log("return: ", item.isRecharge());
                 item.isRecharge();
+            }
+        })
+    }
+
+    startRecharge() {
+        this.units.map((item) => {
+            if(this.type == "soldiers") {
+                item.startRecharge();
+            } else if(this.type == "vehicles") {
+                // console.log("return: ", item.isRecharge());
+                item.startRecharge();
             }
         })
     }

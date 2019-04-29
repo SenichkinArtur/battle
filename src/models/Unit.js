@@ -21,7 +21,7 @@ export class Unit extends BaseUnit {
     }
 
     isAlive() {
-        // boolean
+        return this.health > 0;
     }
     // setRecharge(value) {
     //     if(value < 100) {
