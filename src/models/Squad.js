@@ -10,14 +10,6 @@ export class Squad  extends BaseUnit {
 
     isAlive() {
         return this.units.some(e => e.isAlive());
-        // let newUnits = this.units.filter(item => item.isAlive());
-        // this.units = newUnits;
-        // return newUnits;
-        // if(this.units.length > 0) {
-        //     return true;
-        // } else {
-        //     return false;
-        // }
     }
     checkUnits() {
         this.units = this.units.filter(e => {
@@ -47,29 +39,28 @@ export class Squad  extends BaseUnit {
         });
         totalDamage = Math.round(totalDamage * 100) / 100;
         this.increaseExperienceSquad();
-        // this.isRecharge();
         return totalDamage;
     }
 
     isRecharge() {
-        this.units.map((item) => {
-            if(this.type == "soldiers") {
-                item.isRecharge();
-            } else if(this.type == "vehicles") {
-                item.isRecharge();
-            }
-        })
+        // this.units.map((item) => {
+        //     if(this.type == "soldiers") {
+        //         item.isRecharge();
+        //     } else if(this.type == "vehicles") {
+        //         item.isRecharge();
+        //     }
+        // })
     }
 
     startRecharge() {
-        this.units.map((item) => {
-            if(this.type == "soldiers") {
-                item.startRecharge();
-            } else if(this.type == "vehicles") {
-                // console.log("return: ", item.isRecharge());
-                item.startRecharge();
-            }
-        })
+        // this.units.map((item) => {
+        //     if(this.type == "soldiers") {
+        //         item.startRecharge();
+        //     } else if(this.type == "vehicles") {
+        //         // console.log("return: ", item.isRecharge());
+        //         item.startRecharge();
+        //     }
+        // })
     }
 
     increaseExperienceSquad() {

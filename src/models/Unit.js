@@ -4,8 +4,6 @@ export class Unit extends BaseUnit {
 
     constructor(health, recharge) {
         super();
-        // this.setHealth(health);
-        // this.setRecharge(recharge);
         this.health = health;
         this.recharge = recharge;
     }

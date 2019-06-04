@@ -5,16 +5,12 @@ export class Army {
         this.name = name;
     }
     isAlive() {
-        // console.log(this.name, " squads: ", this.squads.length);
-        // if(this.squads.length > 0) {
-        //     return true;
-        // } else {
-        //     return false;
-        // }
-
-        // let newSquads = this.squads.filter(item => item.isAlive());
-        // this.squads = newSquads;
-        return this.squads.some(e => e.isAlive());
+        if(this.squads.length > 1) {
+            return true;
+        } else {
+            return false;
+        }
+        return this.squads.length ? true : false;
     }
     checkSquads() {
         this.squads = this.squads.filter(e => e.isAlive());
